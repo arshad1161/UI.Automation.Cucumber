@@ -1,16 +1,19 @@
 package testRunner;
 
-import org.junit.runner.RunWith;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
-@RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "/src/test/java/Features/Login.feature",
-		glue = "/src/test/java/stepDefinitions/TC001.java"
+		features = "C:\\Users\\arshe\\git\\ui.automation.cucumber\\ui.automation.cucumber\\src\\test\\java\\feature\\Login.feature",
+		glue = {"stepDefinitions","hooks"},
+       	// tags = "@SmokeTest1",
+		publish=true,
+		monochrome = true,
+		plugin={"pretty","html:target/CucumberReports/CucumberReport.html",
+		 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 		)
        
-public class runnerfile {
+public class runnerfile extends AbstractTestNGCucumberTests {
 
 }
